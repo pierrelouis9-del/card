@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/index.css">
+    <title>Exo5</title>
+</head>
+<body>
+
+    <div class="a">
+        <label for="">nome</label><br>
+        <input type="text" id="nome" placeholder="digite os info">
+
+        <label for="">idade</label><br>
+        <input type="text" id="idade" placeholder="digite os info">
+
+        <label for="">curso</label><br>
+        <input type="text" id="curso" placeholder="digite os info">
+
+        <label for="">cidade</label><br>
+        <input type="text" id="cidade" placeholder="digite os info">
+
+        <button onclick="mostrar_info()"> click</button>
+    </div>
+
+    <div class="b"> 
+        <h2 id="name"></h2>
+
+        <h3 id="age"></h3>
+
+        <p id="cursus"></p>
+
+        <p id="city"></p>
+
+        <p id="member"></p>
+    </div>
+
+    <script>
+
+        function mostrar_info(){
+
+            let nome = document.getElementById("nome").value
+            let idade = document.getElementById("idade").value
+            let curso = document.getElementById("curso").value
+            let cidade = document.getElementById("cidade").value
+
+            if(nome === ""){
+                alert("digite os infos")
+
+            }else if(idade === ""){
+                alert("digite os infos")
+
+            }else if(curso === ""){
+                alert("digite os infos")
+
+            }else if(cidade === ""){
+                alert("digite os infos")
+
+            }else{
+
+                document.getElementById("name").textContent = nome 
+
+                document.getElementById("age").textContent = idade + " anos"
+
+                document.getElementById("cursus").innerHTML ="<strong>Curso:</strong> " + curso
+                document.getElementById("city").textContent = "strong>Cidade:</strong> " + cidade
+
+                let data = new Date()
+
+                let mes = data.toLocaleString('pt-BR', {month:'long'})
+
+                let ano = data.getFullYear()
+
+                document.getElementById("member").textContent =
+                "Membro desde: " + mes + " de " + ano
+            }
+        }
+
+    </script>
+
+</body>
+</html>
