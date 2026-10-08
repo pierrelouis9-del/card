@@ -1,83 +1,90 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/index.css">
     <title>Exo5</title>
 </head>
+
 <body>
+    <h2 class="title"> CARD DE PEFIL BÁSICA</h2>
+    <p class="subtitle">inspirado do design do card de perfil do chrome ou google</p>
+    <main>
+        <div class="a">
+            <label for="">nome</label><br>
+            <input type="text" id="nome" placeholder="digite os info">
 
-    <div class="a">
-        <label for="">nome</label><br>
-        <input type="text" id="nome" placeholder="digite os info">
+            <label for="">idade</label><br>
+            <input type="text" id="idade" placeholder="digite os info">
 
-        <label for="">idade</label><br>
-        <input type="text" id="idade" placeholder="digite os info">
+            <label for="">curso</label><br>
+            <input type="text" id="curso" placeholder="digite os info">
 
-        <label for="">curso</label><br>
-        <input type="text" id="curso" placeholder="digite os info">
+            <label for="">cidade</label><br>
+            <input type="text" id="cidade" placeholder="digite os info">
 
-        <label for="">cidade</label><br>
-        <input type="text" id="cidade" placeholder="digite os info">
+            <button onclick="mostrar_info()"> click</button>
+        </div>
 
-        <button onclick="mostrar_info()"> click</button>
-    </div>
+        <div class="b">
+            <h2 id="name"></h2>
 
-    <div class="b"> 
-        <h2 id="name"></h2>
+            <h3 id="age"></h3>
 
-        <h3 id="age"></h3>
+            <p id="cursus"></p>
 
-        <p id="cursus"></p>
+            <p id="city"></p>
 
-        <p id="city"></p>
-
-        <p id="member"></p>
-    </div>
-
+            <p id="member"></p>
+        </div>
+    </main>
     <script>
+        function mostrar_info() {
 
-        function mostrar_info(){
+            let nome = document.getElementById("nome").value;
+            let idade = document.getElementById("idade").value;
+            let curso = document.getElementById("curso").value;
+            let cidade = document.getElementById("cidade").value;
 
-            let nome = document.getElementById("nome").value
-            let idade = document.getElementById("idade").value
-            let curso = document.getElementById("curso").value
-            let cidade = document.getElementById("cidade").value
+            if (nome === "") {
+                alert("Digite o nome");
+            } else if (idade === "") {
+                alert("Digite a idade");
+            } else if (curso === "") {
+                alert("Digite o curso");
+            } else if (cidade === "") {
+                alert("Digite a cidade");
+            } else {
 
-            if(nome === ""){
-                alert("digite os infos")
+                document.getElementById("name").textContent = nome;
 
-            }else if(idade === ""){
-                alert("digite os infos")
+                document.getElementById("age").textContent =
+                    idade + " anos";
 
-            }else if(curso === ""){
-                alert("digite os infos")
+                document.getElementById("cursus").innerHTML =
+                    "<strong>Curso:</strong> " + curso;
 
-            }else if(cidade === ""){
-                alert("digite os infos")
+                document.getElementById("city").innerHTML =
+                    "<strong>Cidade:</strong> " + cidade;
 
-            }else{
+                let data = new Date();
 
-                document.getElementById("name").textContent = nome 
+                let mes = data.toLocaleString("pt-BR", {
+                    month: "long"
+                });
 
-                document.getElementById("age").textContent = idade + " anos"
-
-                document.getElementById("cursus").innerHTML ="<strong>Curso:</strong> " + curso
-                document.getElementById("city").innerHTML = "<strong>Cidade:</strong> " + cidade
-
-                let data = new Date()
-
-                let mes = data.toLocaleString('pt-BR', {month:'long'})
-
-                let ano = data.getFullYear()
+                let ano = data.getFullYear();
 
                 document.getElementById("member").textContent =
-                "Membro desde: " + mes + " de " + ano
+                    "Membro desde: " + mes + " de " + ano;
+
+                document.querySelector(".b").classList.add("mostrar");
             }
         }
-
     </script>
 
 </body>
+
 </html>
